@@ -8,3 +8,9 @@ export interface IUser extends Document {
   role: string;
   _doc: object;
 }
+
+export interface IDecodedToken {
+  newUser?: IUser;
+  iat: number;
+  exp: number;
+}

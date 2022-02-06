@@ -8,13 +8,6 @@ const CLIENT_SECRET = `${process.env.MAIL_CLIENT_SECRET}`;
 const REFRESH_TOKEN = `${process.env.MAIL_REFRESH_TOKEN}`;
 const SENDER_MAIL = `${process.env.SENDER_EMAIL_ADDRESS}`;
 
-// const CLIENT_ID =
-//   "471578219353-8vs18bdbf1dqhr0j1gs9dg41rlf3so3k.apps.googleusercontent.com";
-// const CLIENT_SECRET = "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";
-// const REFRESH_TOKEN =
-//   "1//04xrQba_YTgcPCgYIARAAGAQSNwF-L9IrN1EV0-M4ExpzBGsSpyUmtb2FIjvHoaX92ZSXUgMh-VmvOWgKw_YK2U-gMXhuwZONUoE";
-// const SENDER_MAIL = "digitaltickchannel@gmail.com";
-
 // send mail
 const sendEmail = async (to: string, url: string, txt: string) => {
   const oAuth2Client = new OAuth2Client(

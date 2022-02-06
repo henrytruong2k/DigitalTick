@@ -5,7 +5,7 @@ const URI = process.env.MONGODB_URL;
 mongoose.connect(
   `${URI}`,
   {
-    autoIndex: false,
+    autoIndex: true,
   },
   (err) => {
     if (err) throw err;
