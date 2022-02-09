@@ -1,0 +1,75 @@
+// @import '../../../styles/helpers.scss', '../../../styles/palette.scss',
+//   '../../../styles/typography.scss';
+
+// .layout {
+//   &__top {
+//     .navbar {
+//       background-color: $defaultColor;
+//       padding: 0 rem(20px);
+//       .navbar-brand {
+//         width: 60px;
+//         img {
+//           width: 100%;
+//           object-fit: contain;
+//           border-radius: 50%;
+//         }
+//       }
+//       .navbar-title {
+//         flex: 1;
+//         color: $primaryBlue;
+//         text-align: center;
+//       }
+//       .navbar-form {
+//         margin-left: auto;
+//         border: 1px solid $border;
+//         border-radius: 6px;
+//         overflow: hidden;
+//         .form-control {
+//           border: none !important;
+//           box-shadow: none;
+//           &:focus {
+//             border: none;
+//           }
+//         }
+//       }
+//       .nav-lang {
+//         grid-column: 5px;
+//         column-gap: 5px;
+//         margin-left: 8px;
+//         img {
+//           width: 25px;
+//           aspect-ratio: 25/ 30;
+//         }
+//       }
+//     }
+//     .navbar-bottom {
+//       color: $defaultText;
+//       background-color: $backgroundFooter;
+//       .navbar-nav {
+//         .nav-item {
+//           .nav-link {
+//             color: $defaultText;
+//             padding: rem(14px) rem(12px);
+//             font-size: rem(16px);
+//           }
+//           &:hover {
+//             color: $primaryBlue;
+//             .dropdown-menu {
+//               display: block;
+//               box-shadow: 0px 12px 48px rgba(109, 117, 136, 0.12);
+//               border-radius: 0px 0px 6px 6px;
+//               border: none;
+//               .dropdown-item {
+//                 background-color: transparent;
+//                 font-size: rem(14px);
+//                 &:hover {
+//                   color: $primaryBlue;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
