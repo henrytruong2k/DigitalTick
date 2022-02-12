@@ -1,5 +1,5 @@
-import Footer from 'components/Footer/Footer';
-import Header from 'components/Header/Header';
+import Footer from 'components/Global/Footer/Footer';
+import Header from 'components/Global/Header/Header';
 import Login from 'pages/Login/Login';
 import { Container } from 'react-bootstrap';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
