@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { CLIENT_RENEG_LIMIT } from 'tls';
-import { InputChange } from 'utils/Typescript';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/actions/userAction';
+import { FormSubmit, InputChange } from 'utils/Typescript';
+
 import './LoginForm.scss';
 
 const LoginForm = () => {
@@ -10,16 +12,22 @@ const LoginForm = () => {
 
   const [typePass, setTypePass] = useState(false);
 
-  const handleChangeInput = (e: InputChange) => {
+  const dispatch = useDispatch();
+
+  const handleChangeInput = async (e: InputChange) => {
+    e.preventDefault();
     const { name, value } = e.target;
 
     setUserLogin({ ...userLogin, [name]: value });
+  };
 
-    // console.log(userLogin);
+  const handleSubmit = async (e: FormSubmit) => {
+    e.preventDefault();
+    dispatch(login(userLogin));
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label htmlFor="account" className="form-label">
           Email
