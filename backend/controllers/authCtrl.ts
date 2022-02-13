@@ -99,7 +99,6 @@ const loginUser = async (user: IUser, password: string, res: Response) => {
   const access_token = generateAccessToken({ id: user._id });
 
   res.json({
-    msg: "Login Success!",
     access_token,
     user: { ...user._doc, password: "" },
   });
