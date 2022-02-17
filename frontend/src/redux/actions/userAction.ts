@@ -2,6 +2,7 @@ import {
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT,
 } from './../constants/userConstant';
 import { Dispatch } from 'redux';
 import { IUserLogin } from 'utils/Typescript';
@@ -25,4 +26,9 @@ export const login = (userLogin: IUserLogin) => async (dispatch: Dispatch) => {
       payload: err,
     });
   }
+};
+
+export const logout = () => (dispatch: Dispatch) => {
+  localStorage.removeItem('userInfo');
+  dispatch({ type: USER_LOGOUT });
 };

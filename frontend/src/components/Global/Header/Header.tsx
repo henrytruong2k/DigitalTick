@@ -2,15 +2,19 @@ import React from 'react';
 import './Header.scss';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootStore } from 'utils/Typescript';
+import { logout } from 'redux/actions/userAction';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const userLogin = useSelector((state: RootStore) => state.userLogin);
 
   const { userInfo } = userLogin;
 
-  const logoutHandler = () => {};
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
 
   return (
     <header>
