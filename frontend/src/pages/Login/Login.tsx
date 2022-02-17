@@ -1,7 +1,8 @@
 import LoginForm from 'components/Auth/LoginForm/LoginForm';
-import React from 'react';
+import Loader from 'components/Global/Loader/Loader';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RootStore } from 'utils/Typescript';
 import '../../styles/auth.scss';
 
@@ -9,11 +10,20 @@ const Login = () => {
   const userLogin = useSelector((state: RootStore) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(-1); //quay về trang trước đó
+    }
+  }, [navigate, userInfo]);
+
   return (
     <div className="auth_page">
       <div className="auth_box">
         <h3 className="text-uppercase text-center mb-4">Login</h3>
         {error && <h5 className="text-danger">{error}</h5>}
+        {loading && <Loader />}
         <LoginForm />
 
         <small className="row my-2 text-primary" style={{ cursor: 'pointer' }}>
