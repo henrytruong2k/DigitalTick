@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/actions/userAction';
-import { FormSubmit, InputChange } from 'utils/Typescript';
+import { FormSubmit, InputChange, IUserLogin } from 'utils/Typescript';
 
 import './LoginForm.scss';
 
 const LoginForm = () => {
   const initialState = { account: '', password: '' };
-  const [userLogin, setUserLogin] = useState(initialState);
+  const [userLogin, setUserLogin] = useState<IUserLogin>(initialState);
   const { account, password } = userLogin;
 
   const [typePass, setTypePass] = useState(false);

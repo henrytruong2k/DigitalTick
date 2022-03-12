@@ -7,7 +7,7 @@ export const validRegister = (
 ) => {
   const { name, account, password } = req.body;
 
-  const errors = [];
+  const errors: string[] = [];
 
   if (!name) {
     errors.push("Please add your name.");
@@ -18,7 +18,7 @@ export const validRegister = (
   if (!account) {
     errors.push("Please add your email or phone number.");
   } else if (!validPhone(account) && !validateEmail(account)) {
-    errors.push("Email or phone number format is incorrect.");
+    errors.push("Email format is incorrect.");
   }
 
   if (password.length < 6) {

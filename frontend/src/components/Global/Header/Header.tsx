@@ -1,10 +1,10 @@
 import React from 'react';
-import './Header.scss';
-import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Navbar, NavDropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootStore } from 'utils/Typescript';
+import { Link } from 'react-router-dom';
 import { logout } from 'redux/actions/userAction';
+import { RootStore } from 'utils/Typescript';
+import './Header.scss';
 
 const Header = () => {
   const dispatch = useDispatch();
