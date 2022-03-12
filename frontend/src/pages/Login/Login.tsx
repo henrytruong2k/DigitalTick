@@ -1,4 +1,5 @@
 import LoginForm from 'components/Auth/LoginForm/LoginForm';
+import { showErrMsg } from 'components/Global/Alert/Alert';
 import Loader from 'components/Global/Loader/Loader';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -22,7 +23,7 @@ const Login = () => {
     <div className="auth_page">
       <div className="auth_box">
         <h3 className="text-uppercase text-center mb-4">Login</h3>
-        {error && <h5 className="text-danger">{error}</h5>}
+        {error && showErrMsg(error)}
         {loading && <Loader />}
         <LoginForm />
 

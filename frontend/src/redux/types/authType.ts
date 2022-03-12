@@ -3,7 +3,7 @@ import { IUser } from 'utils/Typescript';
 export interface IAuthResponse {
   access_token?: string;
   user?: IUser;
-  error?: string | string[];
+  error?: string;
 }
 
 export interface IAuth {
@@ -13,6 +13,22 @@ export interface IAuth {
 }
 
 export interface IAuthType {
-  type: string; //type of USER_LOGIN_REQUEST,...
+  type: string;
   payload: IAuthResponse;
+}
+
+export interface IRegister {
+  loading?: boolean;
+  info?: IRegisterResponse;
+  error?: IRegisterResponse;
+}
+
+export interface IRegisterType {
+  type: string;
+  payload: IRegisterResponse;
+}
+
+export interface IRegisterResponse {
+  msg?: string;
+  errors?: string[];
 }
