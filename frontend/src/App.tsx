@@ -1,6 +1,7 @@
 import Footer from 'components/Global/Footer/Footer';
 import Header from 'components/Global/Header/Header';
 import About from 'pages/About/About';
+import Active from 'pages/Active/[slug]';
 import Login from 'pages/Login/Login';
 import Register from 'pages/Register/Register';
 import { Container } from 'react-bootstrap';
@@ -17,6 +18,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/active/:slug" element={<Active />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </Container>

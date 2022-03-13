@@ -26,3 +26,7 @@ export interface IUser extends IUserLogin {
   updatedAt: string;
   _id: string;
 }
+
+export interface IActiveToken {
+  active_token: string;
+}

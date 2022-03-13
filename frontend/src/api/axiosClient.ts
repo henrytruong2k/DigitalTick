@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
 const SERVER_URL = 'http://localhost:5000';
 
@@ -24,10 +24,10 @@ axiosClient.interceptors.request.use(
 );
 
 axiosClient.interceptors.response.use(
-  function (response: AxiosResponse<any, any>) {
+  function (response: any) {
     return response.data;
   },
-  function (error) {
+  function (error: any) {
     return Promise.reject(error.response.data.msg);
   }
 );
