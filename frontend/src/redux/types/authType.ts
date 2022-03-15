@@ -32,3 +32,13 @@ export interface IRegisterResponse {
   msg?: string;
   errors?: string[];
 }
+
+export interface IForgotPassword {
+  loading?: boolean;
+  info?: IForgotResponse;
+  error?: IForgotResponse;
+}
+
+export interface IForgotResponse {
+  msg?: string;
+}

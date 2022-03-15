@@ -34,7 +34,7 @@ const authCtrl = {
       const url = `${CLIENT_URL}/active/${active_token}`;
 
       if (validateEmail(account)) {
-        sendMail(account, url, "Verify your email address");
+        sendMail(account, "Register", url, "Verify your email address");
         return res.json({ msg: "Success! Please check your email." });
       }
     } catch (err: any) {
@@ -83,6 +83,31 @@ const authCtrl = {
 
       // if user exists
       loginUser(user, password, res);
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  forgotPassword: async (req: Request, res: Response) => {
+    try {
+      const { account } = req.body;
+
+      if (!validateEmail(account)) {
+        return res.status(400).json({ msg: "Invalid Email format" });
+      }
+
+      const user = await Users.findOne({ account });
+
+      if (!user)
+        return res.status(400).json({ msg: "This account does not exist." });
+
+      const access_token = generateAccessToken({ id: user._id });
+
+      const url = `${CLIENT_URL}/reset-password/${access_token}`;
+
+      if (validateEmail(account)) {
+        sendMail(account, "Forgot password", url, "Forgot password?");
+        return res.json({ msg: "Success! Please check your email." });
+      }
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }

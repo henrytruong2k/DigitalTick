@@ -1,4 +1,4 @@
-import { IActiveToken } from './../utils/Typescript';
+import { IActiveToken, IForgotPassword } from './../utils/Typescript';
 import { IUserLogin, IUserRegister } from 'utils/Typescript';
 import axiosClient from './axiosClient';
 
@@ -15,6 +15,11 @@ const userAPI = {
 
   activeToken(data: IActiveToken) {
     const url = '/api/active';
+    return axiosClient.post(url, data);
+  },
+
+  forgotPassword(data: IForgotPassword) {
+    const url = '/api/forgot-password';
     return axiosClient.post(url, data);
   },
 };

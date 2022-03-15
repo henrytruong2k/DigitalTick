@@ -29,13 +29,13 @@ const Login = () => {
 
         <small className="row my-2 text-primary" style={{ cursor: 'pointer' }}>
           <span className="col-6">
-            <Link to="/forgot_password">Forgot password?</Link>
+            <Link to="/forgot-password">Forgot password?</Link>
           </span>
         </small>
 
         <p>
           You don't have an account?&nbsp;
-          <Link to={`/register`}>Register Now</Link>
+          <Link to="/register">Register Now</Link>
         </p>
       </div>
     </div>

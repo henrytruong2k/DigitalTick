@@ -30,3 +30,7 @@ export interface IUser extends IUserLogin {
 export interface IActiveToken {
   active_token: string;
 }
+
+export interface IForgotPassword {
+  account: string;
+}
