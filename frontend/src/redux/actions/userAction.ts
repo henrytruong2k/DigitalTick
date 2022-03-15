@@ -1,8 +1,11 @@
 import userAPI from 'api/userAPI';
 import { Dispatch } from 'redux';
 import { IUserLogin, IUserRegister } from 'utils/Typescript';
-import { validRegister } from 'utils/Valid';
+import { validateEmail, validRegister } from 'utils/Valid';
 import {
+  USER_FORGOT_PASSWORD_FAIL,
+  USER_FORGOT_PASSWORD_REQUEST,
+  USER_FORGOT_PASSWORD_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -56,6 +59,32 @@ export const register =
       });
     } catch (err: any) {
       dispatch({ type: USER_REGISTER_FAIL, payload: { errors: err } });
+    }
+  };
+
+export const forgotPassword =
+  (account: string) => async (dispatch: Dispatch) => {
+    const check = validateEmail(account);
+
+    if (!check) {
+      return dispatch({
+        type: USER_FORGOT_PASSWORD_FAIL,
+        payload: { msg: 'Email format is incorrect.' },
+      });
+    }
+    try {
+      dispatch({ type: USER_FORGOT_PASSWORD_REQUEST });
+
+      const data = await userAPI.forgotPassword({ account });
+      console.log(data);
+
+      dispatch({
+        type: USER_FORGOT_PASSWORD_SUCCESS,
+        payload: data,
+      });
+    } catch (err: any) {
+      console.log('payload err: ', err);
+      dispatch({ type: USER_FORGOT_PASSWORD_FAIL, payload: err });
     }
   };
 

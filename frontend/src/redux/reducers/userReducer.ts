@@ -1,10 +1,7 @@
 import {
-  IAuth,
-  IAuthType,
-  IRegister,
-  IRegisterType,
-} from './../types/authType';
-import {
+  USER_FORGOT_PASSWORD_FAIL,
+  USER_FORGOT_PASSWORD_REQUEST,
+  USER_FORGOT_PASSWORD_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -13,6 +10,13 @@ import {
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
 } from 'redux/constants/userConstant';
+import {
+  IAuth,
+  IAuthType,
+  IForgotPassword,
+  IRegister,
+  IRegisterType,
+} from './../types/authType';
 
 export const userLoginReducer = (
   state: IAuth = {},
@@ -43,7 +47,21 @@ export const userRegisterReducer = (
     case USER_REGISTER_SUCCESS:
       return { loading: false, info: action.payload };
     case USER_REGISTER_FAIL:
-      console.log('payload err: ', action.payload);
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+export const userForgotPasswordReducer = (
+  state: IForgotPassword = {},
+  action: IRegisterType
+): IRegister => {
+  switch (action.type) {
+    case USER_FORGOT_PASSWORD_REQUEST:
+      return { loading: true };
+    case USER_FORGOT_PASSWORD_SUCCESS:
+      return { loading: false, info: action.payload };
+    case USER_FORGOT_PASSWORD_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

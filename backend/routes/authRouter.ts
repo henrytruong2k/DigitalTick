@@ -10,4 +10,6 @@ router.post("/active", authCtrl.activeAccount);
 
 router.post("/login", authCtrl.login);
 
+router.post("/forgot-password", authCtrl.forgotPassword);
+
 export default router;
